@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: coffee-machine-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: coffee-machine-app
+  template:
+    metadata:
+      labels:
+        app: coffee-machine-app
+    spec:
+      containers:
+      - name: coffee-machine-container
+        image: coffee-machine-app:latest
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 80
